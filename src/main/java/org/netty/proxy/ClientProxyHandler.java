@@ -121,8 +121,10 @@ public class ClientProxyHandler extends ChannelInboundHandlerAdapter {
 				remoteChannel = null;
 			}
 			clientProxyChannel.close();
-			clientCache.clear();
-			clientCache = null;
+			if(null != clientCache) {
+				clientCache.clear();
+				clientCache = null;
+			}
 		} catch (Exception e) {
 			logger.error("close channel error", e);
 		}
