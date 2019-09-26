@@ -116,7 +116,7 @@ public class ClientProxyHandler extends ChannelInboundHandlerAdapter {
 
 	private void channelClose() {
 		try {
-			if (remoteChannel.get() != null) {
+			if (null != remoteChannel && remoteChannel.get() != null) {
 				remoteChannel.get().close();
 				remoteChannel = null;
 			}
